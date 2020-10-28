@@ -17,14 +17,14 @@ var dbqdb *sql.DB
 func init() {
 	st := NewSuite("dbq")
 	st.InitF = func() {
-		st.AddBenchmark("Insert", 200*ORM_MULTI, DbqInsert)
+		st.AddBenchmark("Insert", 200*OrmMulti, DbqInsert)
 		//st.AddBenchmark("MultiInsert 100 row", 200*ORM_MULTI, DbqInsertMulti)
 		//st.AddBenchmark("Update", 200*ORM_MULTI, DbqUpdate)
 		//st.AddBenchmark("Read", 200*ORM_MULTI, DbqRead)
 		//st.AddBenchmark("MultiRead limit 100", 200*ORM_MULTI, DbqReadSlice)
 
 		var err error
-		dbqdb, err = sql.Open("postgres", ORM_SOURCE)
+		dbqdb, err = sql.Open("postgres", OrmSource)
 		checkErr(err)
 		err = dbqdb.Ping()
 		checkErr(err)
