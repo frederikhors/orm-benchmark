@@ -24,7 +24,7 @@ func init() {
 		//st.AddBenchmark("MultiRead limit 100", 200*ORM_MULTI, DbqReadSlice)
 
 		var err error
-		dbqdb, err = sql.Open("postgres", OrmSource)
+		dbqdb, err = sql.Open("pgx", OrmSource)
 		checkErr(err)
 		err = dbqdb.Ping()
 		checkErr(err)
@@ -41,12 +41,12 @@ func DbqInsert(b *B) {
 	for i := 0; i < b.N; i++ {
 		m.Id = 0
 
-		//stmt := dbq.INSERTStmt("models", []string{"name", "title", "fax", "web", "age", "\"right\"", "counter"}, 1, dbq.PostgreSQL)
+		stmt := dbq.INSERTStmt("models", []string{"name", "title", "fax", "web", "age", "\"right\"", "counter"}, 1, dbq.PostgreSQL)
 		//println(stmt)
-		stmt := "INSERT INTO models ( name,title,fax,web,age,\"right\",counter ) VALUES ($1,$2,$3,$4,$5,$6,$7)"
+		//stmt := "INSERT INTO models ( name,title,fax,web,age,\"right\",counter ) VALUES ($1,$2,$3,$4,$5,$6,$7)"
 
-		// _, err := dbq.E(context.Background(), dbqdb, stmt, nil, dbq.Struct(m)[1:])
-		_, err := dbq.E(context.Background(), dbqdb, stmt, nil, "Orm Benchmark", "Just a Benchmark for fun", "99909990", "http://blog.milkpod29.me", 100, true, 1000)
+		_, err := dbq.E(context.Background(), dbqdb, stmt, nil, dbq.Struct(m)[1:])
+		//_, err := dbq.E(context.Background(), dbqdb, stmt, nil, "Orm Benchmark", "Just a Benchmark for fun", "99909990", "http://blog.milkpod29.me", 100, true, 1000)
 
 		if err != nil {
 			fmt.Println(err)
