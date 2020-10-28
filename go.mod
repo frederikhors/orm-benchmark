@@ -8,6 +8,7 @@ require (
 	github.com/golang/protobuf v1.4.3 // indirect
 	github.com/golang/snappy v0.0.2 // indirect
 	github.com/lib/pq v1.8.0
+	github.com/rocketlaunchr/dbq/v2 v2.6.0
 	github.com/segmentio/encoding v0.2.1 // indirect
 	github.com/vmihailenco/tagparser v0.1.2 // indirect
 	golang.org/x/crypto v0.0.0-20201016220609-9e8e0b390897 // indirect

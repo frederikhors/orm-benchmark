@@ -21,10 +21,10 @@ func init() {
 	st := NewSuite("raw")
 	st.InitF = func() {
 		st.AddBenchmark("Insert", 200*OrmMulti, RawInsert)
-		st.AddBenchmark("MultiInsert 100 row", 200*OrmMulti, RawInsertMulti)
-		st.AddBenchmark("Update", 200*OrmMulti, RawUpdate)
-		st.AddBenchmark("Read", 200*OrmMulti, RawRead)
-		st.AddBenchmark("MultiRead limit 100", 200*OrmMulti, RawReadSlice)
+		// st.AddBenchmark("MultiInsert 100 row", 200*OrmMulti, RawInsertMulti)
+		// st.AddBenchmark("Update", 200*OrmMulti, RawUpdate)
+		// st.AddBenchmark("Read", 200*OrmMulti, RawRead)
+		// st.AddBenchmark("MultiRead limit 100", 200*OrmMulti, RawReadSlice)
 
 		raw, _ = sql.Open("postgres", OrmSource)
 	}

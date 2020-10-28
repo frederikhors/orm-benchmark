@@ -13,10 +13,10 @@ func init() {
 	st := NewSuite("gorm")
 	st.InitF = func() {
 		st.AddBenchmark("Insert", 200*OrmMulti, GormInsert)
-		st.AddBenchmark("MultiInsert 100 row", 200*OrmMulti, GormInsertMulti)
-		st.AddBenchmark("Update", 200*OrmMulti, GormUpdate)
-		st.AddBenchmark("Read", 200*OrmMulti, GormRead)
-		st.AddBenchmark("MultiRead limit 100", 200*OrmMulti, GormReadSlice)
+		// st.AddBenchmark("MultiInsert 100 row", 200*OrmMulti, GormInsertMulti)
+		// st.AddBenchmark("Update", 200*OrmMulti, GormUpdate)
+		// st.AddBenchmark("Read", 200*OrmMulti, GormRead)
+		// st.AddBenchmark("MultiRead limit 100", 200*OrmMulti, GormReadSlice)
 		var err error
 		gormdb, err = gorm.Open(postgres.New(postgres.Config{
 			DSN:                  OrmSource,
